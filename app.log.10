@@ -1,0 +1,113 @@
+2025-07-25 19:16:24,219 - app - ERROR - Unhandled exception: Could not build url for endpoint 'main.terms'. Did you mean 'main.browse' instead?
+Traceback (most recent call last):
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\auth\__init__.py", line 69, in register
+    return render_template('auth/register.html', form=form, title='Register')
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\auth\register.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\base.html", line 82, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\auth\register.html", line 61, in block 'content'
+    <p class="text-muted small">By registering, you agree to our <a href="{{ url_for('main.terms') }}">Terms of Service</a> and <a href="{{ url_for('main.privacy') }}">Privacy Policy</a>.</p>
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.terms'. Did you mean 'main.browse' instead?
+2025-07-26 08:51:05,241 - app - ERROR - Unhandled exception: Could not build url for endpoint 'main.terms'. Did you mean 'main.browse' instead?
+Traceback (most recent call last):
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\auth\__init__.py", line 69, in register
+    return render_template('auth/register.html', form=form, title='Register')
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\auth\register.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\base.html", line 82, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\auth\register.html", line 61, in block 'content'
+    <p class="text-muted small">By registering, you agree to our <a href="{{ url_for('main.terms') }}">Terms of Service</a> and <a href="{{ url_for('main.privacy') }}">Privacy Policy</a>.</p>
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.terms'. Did you mean 'main.browse' instead?
+2025-07-26 08:51:05,241 - app - ERROR - Unhandled exception: Could not build url for endpoint 'main.terms'. Did you mean 'main.browse' instead?
+Traceback (most recent call last):
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\auth\__init__.py", line 69, in register
+    return render_template('auth/register.html', form=form, title='Register')
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\auth\register.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\base.html", line 82, in top-level template code
+    {% block content %}{% endblock %}
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\templates\auth\register.html", line 61, in block 'content'
+    <p class="text-muted small">By registering, you agree to our <a href="{{ url_for('main.terms') }}">Terms of Service</a> and <a href="{{ url_for('main.privacy') }}">Privacy Policy</a>.</p>
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 1074, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 1063, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\werkzeug\routing\map.py", line 919, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'main.terms'. Did you mean 'main.browse' instead?
+2025-07-26 08:54:18,368 - app - ERROR - Unhandled exception: 'password' is an invalid keyword argument for User
+Traceback (most recent call last):
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\app\auth\__init__.py", line 57, in register
+    user = User(
+  File "<string>", line 4, in __init__
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\sqlalchemy\orm\state.py", line 571, in _initialize_instance
+    with util.safe_reraise():
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\sqlalchemy\orm\state.py", line 569, in _initialize_instance
+    manager.original_init(*mixed[1:], **kwargs)
+  File "C:\Users\shrav\CascadeProjects\RagaNoteFinder\venv\lib\site-packages\sqlalchemy\orm\decl_base.py", line 2173, in _declarative_constructor
+    raise TypeError(
+TypeError: 'password' is an invalid keyword argument for User
+2025-07-28 12:54:51,124 - app - INFO - RagaNoteFinder startup
+2025-07-28 12:54:51,124 - app - INFO - Logging level: DEBUG
+2025-07-28 12:54:51,126 - app - INFO - Application root: C:\Users\shrav\CascadeProjects\RagaNoteFinder
+2025-07-29 14:27:51,316 - app - INFO - RagaNoteFinder startup
+2025-07-29 14:27:51,318 - app - INFO - Logging level: DEBUG
+2025-07-29 14:27:51,319 - app - INFO - Application root: C:\Users\shrav\CascadeProjects\RagaNoteFinder
+2025-07-29 14:33:27,524 - app - INFO - RagaNoteFinder startup
+2025-07-29 14:33:27,525 - app - INFO - Logging level: DEBUG

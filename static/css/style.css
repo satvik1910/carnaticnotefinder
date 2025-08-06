@@ -1,0 +1,149 @@
+/* Main styles for RagaNoteFinder */
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+h2 {
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.btn-primary {
+    background-color: #4e73df;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2e59d9;
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.table {
+    margin-top: 1rem;
+}
+
+.table th {
+    font-weight: 600;
+    background-color: #f8f9fc;
+    border-bottom: 2px solid #e3e6f0;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem 0;
+    background-color: #f8f9fc;
+    border-top: 1px solid #e3e6f0;
+}
+
+/* Loading spinner */
+.spinner-border {
+    margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Duration bar styling */
+.duration-bar {
+    height: 8px;
+    background-color: #4e73df;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    min-width: 4px;
+}
+
+/* Animation for note highlighting */
+@keyframes highlightNote {
+    0% { background-color: rgba(78, 115, 223, 0.1); }
+    50% { background-color: rgba(78, 115, 223, 0.2); }
+    100% { background-color: transparent; }
+}
+
+.highlight {
+    animation: highlightNote 1.5s ease-out;
+}
+
+/* Table cell styling for better readability */
+td {
+    vertical-align: middle !important;
+    padding: 0.75rem 1rem !important;
+}
+
+/* Make the table more compact */
+.table {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Style for time cells to make them more distinct */
+td:first-child {
+    font-family: monospace;
+    color: #495057;
+    white-space: nowrap;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

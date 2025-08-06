@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Complete: {{ analysis.title }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 25px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        .analysis-details {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .detail-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+            color: #555;
+        }
+        .detail-value {
+            flex: 1;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-weight: bold;
+            text-align: center;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .highlight {
+            background-color: #f0f7ff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Analysis Complete!</h1>
+    </div>
+    <div class="content">
+        <p>Hello {{ user.username }},</p>
+        <p>Your analysis <strong>"{{ analysis.title }}"</strong> is now ready to view.</p>
+        
+        <div class="analysis-details">
+            <div class="detail-row">
+                <div class="detail-label">Title:</div>
+                <div class="detail-value">{{ analysis.title }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Source:</div>
+                <div class="detail-value">
+                    {% if analysis.video_url %}
+                        <a href="{{ analysis.video_url }}" target="_blank" style="color: #4CAF50;">
+                            {{ analysis.video_url|truncate(40, True) }}
+                        </a>
+                    {% else %}
+                        Audio File
+                    {% endif %}
+                </div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Duration:</div>
+                <div class="detail-value">{{ "%0.2f"|format(analysis.end_time - analysis.start_time) }} seconds</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Notes Detected:</div>
+                <div class="detail-value">{{ analysis.notes.count() }}</div>
+            </div>
+            <div class="detail-row">
+                <div class="detail-label">Shruthi:</div>
+                <div class="detail-value">{{ analysis.shruthi }}</div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 25px 0;">
+            <a href="{{ url_for('main.analysis', analysis_id=analysis.id, _external=True) }}" class="button">
+                View Results
+            </a>
+        </div>
+        
+        <p>If you have any questions about your analysis or need further assistance, feel free to reply to this email.</p>
+        
+        <p>Happy analyzing!<br>
+        <strong>The RagaNoteFinder Team</strong></p>
+    </div>
+    <div class="footer">
+        <p>© {{ now.year }} RagaNoteFinder. All rights reserved.</p>
+        <p>
+            <a href="{{ url_for('main.terms', _external=True) }}" style="color: #4CAF50; text-decoration: none; margin: 0 10px;">Terms of Service</a> | 
+            <a href="{{ url_for('main.privacy', _external=True) }}" style="color: #4CAF50; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+        </p>
+    </div>
+</body>
+</html>

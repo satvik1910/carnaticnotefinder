@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Home - RagaNoteFinder{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="text-center mb-0">RagaNoteFinder</h2>
+                        <p class="text-center mb-0">Identify Carnatic Notes from Video Segments</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="analysisForm">
+                            <div class="mb-3">
+                                <label for="videoUrl" class="form-label">Video URL</label>
+                                <input type="url" class="form-control" id="videoUrl" required 
+                                       placeholder="Enter YouTube or other video platform URL">
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label for="startTime" class="form-label">Start Time (seconds)</label>
+                                    <input type="number" class="form-control" id="startTime" 
+                                           min="0" step="0.1" value="0" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="endTime" class="form-label">End Time (seconds)</label>
+                                    <input type="number" class="form-control" id="endTime" 
+                                           min="0.1" step="0.1" value="10" required>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="shruthi" class="form-label">Shruthi (Base Note)</label>
+                                    <select class="form-select" id="shruthi" required>
+                                        <option value="C">C (Shadjam at 261.63 Hz)</option>
+                                        <option value="C#" selected>C#/D♭ (Shadjam at 277.18 Hz)</option>
+                                        <option value="D">D (Shadjam at 293.66 Hz)</option>
+                                        <option value="D#">D#/E♭ (Shadjam at 311.13 Hz)</option>
+                                        <option value="E">E (Shadjam at 329.63 Hz)</option>
+                                        <option value="F">F (Shadjam at 349.23 Hz)</option>
+                                        <option value="F#">F#/G♭ (Shadjam at 369.99 Hz)</option>
+                                        <option value="G">G (Shadjam at 392.00 Hz)</option>
+                                        <option value="G#">G#/A♭ (Shadjam at 415.30 Hz)</option>
+                                        <option value="A">A (Shadjam at 440.00 Hz)</option>
+                                        <option value="A#">A#/B♭ (Shadjam at 466.16 Hz)</option>
+                                        <option value="B">B (Shadjam at 493.88 Hz)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    Analyze Video Segment
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div id="results" class="mt-4 d-none">
+                            <h4>Analysis Results</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Time (s)</th>
+                                            <th>Note</th>
+                                            <th>Frequency (Hz)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="resultsBody">
+                                        <!-- Results will be populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="noResults" class="text-center py-3">
+                                <p class="text-muted">No notes detected in this segment.</p>
+                            </div>
+                        </div>
+                        
+                        <div id="error" class="alert alert-danger mt-3 d-none" role="alert">
+                            <!-- Error messages will be shown here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

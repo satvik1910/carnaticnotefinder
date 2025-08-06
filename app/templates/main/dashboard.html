@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - RagaNoteFinder{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">Dashboard</h1>
+            
+            <!-- Welcome Message -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4">Welcome, {{ current_user.username }}!</h2>
+                    <p class="mb-0">Manage your analyses and explore new features.</p>
+                </div>
+            </div>
+            
+            <!-- Recent Analyses -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h5 mb-0">Your Recent Analyses</h2>
+                </div>
+                <div class="card-body">
+                    {% if recent_analyses %}
+                        <div class="list-group">
+                            {% for analysis in recent_analyses %}
+                                <a href="{{ url_for('main.analysis', analysis_id=analysis.id) }}" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">{{ analysis.title }}</h5>
+                                        <small>{{ analysis.created_at.strftime('%Y-%m-%d') }}</small>
+                                    </div>
+                                    <p class="mb-1">{{ analysis.description|truncate(100) if analysis.description else 'No description' }}</p>
+                                    <small>Status: <span class="badge bg-{{ 'success' if analysis.status == 'completed' else 'warning' }}">
+                                        {{ analysis.status|title }}
+                                    </span></small>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="mb-0">You haven't created any analyses yet.</p>
+                        <a href="{{ url_for('main.analyze') }}" class="btn btn-primary mt-3">Analyze a Video</a>
+                    {% endif %}
+                </div>
+                <div class="card-footer text-end">
+                    <a href="{{ url_for('main.browse') }}" class="btn btn-outline-primary btn-sm">View All Analyses</a>
+                </div>
+            </div>
+            
+            <!-- Favorites -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h5 mb-0">Your Favorites</h2>
+                </div>
+                <div class="card-body">
+                    {% if favorites %}
+                        <div class="list-group">
+                            {% for fav in favorites %}
+                                <a href="{{ url_for('main.analysis', analysis_id=fav.analysis.id) }}" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">{{ fav.analysis.title }}</h5>
+                                        <small>{{ fav.analysis.created_at.strftime('%Y-%m-%d') }}</small>
+                                    </div>
+                                    <p class="mb-1">{{ fav.analysis.description|truncate(100) if fav.analysis.description else 'No description' }}</p>
+                                    <small>By {{ fav.analysis.author.username }}</small>
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p class="mb-0">You haven't favorited any analyses yet.</p>
+                        <a href="{{ url_for('main.browse') }}" class="btn btn-outline-primary mt-3">Browse Public Analyses</a>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h5 mb-0">Quick Actions</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6 col-lg-3">
+                            <a href="{{ url_for('main.analyze') }}" class="btn btn-primary w-100">
+                                <i class="fas fa-plus me-2"></i>New Analysis
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <a href="{{ url_for('main.browse') }}" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-search me-2"></i>Browse Analyses
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <a href="{{ url_for('auth.profile') }}" class="btn btn-outline-secondary w-100">
+                                <i class="fas fa-user me-2"></i>Edit Profile
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-danger w-100">
+                                <i class="fas fa-sign-out-alt me-2"></i>Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

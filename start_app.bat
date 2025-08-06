@@ -1,0 +1,4 @@
+@echo off
+set GOOGLE_CLIENT_ID=395707312620-i6nq9lirn82gv31hjqt1fi3qqq3nsrf4.apps.googleusercontent.com
+set GOOGLE_CLIENT_SECRET=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
+python start_app.py

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to RagaNoteFinder{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center py-5 bg-light rounded-3">
+    <h1 class="display-4">Welcome to RagaNoteFinder</h1>
+    <p class="lead">Discover the notes in your favorite Carnatic music performances</p>
+    <hr class="my-4">
+    <p>Analyze YouTube videos to identify and visualize the musical notes in Carnatic performances.</p>
+    
+    {% if current_user.is_authenticated %}
+        <a class="btn btn-primary btn-lg" href="{{ url_for('main.analyze') }}" role="button">
+            <i class="fas fa-plus me-2"></i>New Analysis
+        </a>
+    {% else %}
+        <div class="d-flex justify-content-center gap-3">
+            <a class="btn btn-primary btn-lg" href="{{ url_for('auth.register') }}" role="button">
+                <i class="fas fa-user-plus me-2"></i>Sign Up
+            </a>
+            <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('auth.login') }}" role="button">
+                <i class="fas fa-sign-in-alt me-2"></i>Login
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-music fa-3x text-primary mb-3"></i>
+                <h3 class="card-title">Analyze Music</h3>
+                <p class="card-text">Upload audio or provide a YouTube link to analyze Carnatic music performances and identify the notes being played.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                <h3 class="card-title">Visualize Notes</h3>
+                <p class="card-text">View detailed visualizations of the musical notes, including pitch contours and note durations.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="fas fa-book fa-3x text-primary mb-3"></i>
+                <h3 class="card-title">Learn & Explore</h3>
+                <p class="card-text">Enhance your understanding of Carnatic music through detailed analysis and note identification.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if not current_user.is_authenticated %}
+<div class="row mt-4">
+    <div class="col-12 text-center">
+        <p class="lead">Ready to get started?</p>
+        <a href="{{ url_for('auth.register') }}" class="btn btn-success btn-lg">
+            <i class="fas fa-user-plus me-2"></i>Create Free Account
+        </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

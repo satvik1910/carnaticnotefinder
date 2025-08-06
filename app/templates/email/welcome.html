@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to RagaNoteFinder!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #4a6fa5;
+            color: white;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 30px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        .welcome-text {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+        .feature {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: white;
+            border-left: 4px solid #4a6fa5;
+            border-radius: 0 4px 4px 0;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #4a6fa5;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #4a6fa5;
+            color: white !important;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+            text-align: center;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .highlight {
+            background-color: #f0f7ff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to RagaNoteFinder, {{ user.username }}!</h1>
+    </div>
+    <div class="content">
+        <div class="welcome-text">
+            <p>Thank you for joining our community of music enthusiasts. We're excited to have you on board!</p>
+        </div>
+        
+        <div class="feature">
+            <h3>Get Started</h3>
+            <p>With RagaNoteFinder, you can analyze audio segments to identify Carnatic music notes and enhance your musical journey. Here's how to get started:</p>
+        </div>
+        
+        <div class="feature">
+            <h3>1. Upload or Link Your Audio</h3>
+            <p>Upload an audio file or provide a YouTube URL to analyze your favorite music pieces.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>2. Select Time Segment</h3>
+            <p>Choose the specific time range you want to analyze within your audio.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>3. Choose Your Shruthi</h3>
+            <p>Select your preferred base note for accurate note detection.</p>
+        </div>
+        
+        <div class="feature">
+            <h3>4. Analyze & Learn</h3>
+            <p>View the detected notes, their timing, and frequency information to enhance your practice and understanding.</p>
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{ url_for('main.index', _external=True) }}" class="button">
+                Start Analyzing Now
+            </a>
+        </div>
+        
+        <p>If you have any questions or need assistance, feel free to reach out to our support team at <a href="mailto:support@raganotefinder.com">support@raganotefinder.com</a>.</p>
+        
+        <p>Happy analyzing!<br>
+        <strong>The RagaNoteFinder Team</strong></p>
+    </div>
+    <div class="footer">
+        <p>© {{ now.year }} RagaNoteFinder. All rights reserved.</p>
+        <p>
+            <a href="{{ url_for('main.terms', _external=True) }}" style="color: #4a6fa5; text-decoration: none; margin: 0 10px;">Terms of Service</a> | 
+            <a href="{{ url_for('main.privacy', _external=True) }}" style="color: #4a6fa5; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+        </p>
+    </div>
+</body>
+</html>

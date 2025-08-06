@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Analyze Audio - RagaNoteFinder{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">New Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('main.analyze') }}" novalidate>
+                        <!-- CSRF Token -->
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        
+                        <!-- Video URL -->
+                        <div class="mb-3">
+                            <label for="video_url" class="form-label">
+                                <i class="fas fa-video me-1"></i> Video or Audio URL
+                            </label>
+                            <input type="url" class="form-control" id="video_url" name="video_url" 
+                                   placeholder="https://www.youtube.com/watch?v=..." required>
+                            <div class="form-text">
+                                Enter a YouTube URL or direct link to an audio/video file
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label">
+                                <i class="fas fa-heading me-1"></i> Analysis Title
+                            </label>
+                            <input type="text" class="form-control" id="title" name="title" 
+                                   value="Untitled Analysis">
+                        </div>
+
+                        <div class="row">
+                            <!-- Start Time -->
+                            <div class="col-md-4 mb-3">
+                                <label for="start_time" class="form-label">
+                                    <i class="fas fa-hourglass-start me-1"></i> Start Time (s)
+                                </label>
+                                <input type="number" step="0.1" min="0" class="form-control" 
+                                       id="start_time" name="start_time" value="{{ default_start }}">
+                            </div>
+                            
+                            <!-- End Time -->
+                            <div class="col-md-4 mb-3">
+                                <label for="end_time" class="form-label">
+                                    <i class="fas fa-hourglass-end me-1"></i> End Time (s)
+                                </label>
+                                <input type="number" step="0.1" min="0.1" class="form-control" 
+                                       id="end_time" name="end_time" value="{{ default_end }}">
+                            </div>
+                            
+                            <!-- Shruthi -->
+                            <div class="col-md-4 mb-3">
+                                <label for="shruthi" class="form-label">
+                                    <i class="fas fa-music me-1"></i> Base Pitch (Shruthi)
+                                </label>
+                                <select class="form-select" id="shruthi" name="shruthi">
+                                    {% for note in ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'] %}
+                                        <option value="{{ note }}" {% if default_shruthi == note %}selected{% endif %}>
+                                            {{ note }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Public Toggle -->
+                        <div class="form-check form-switch mb-4">
+                            <input class="form-check-input" type="checkbox" role="switch" 
+                                   id="is_public" name="is_public" value="y">
+                            <label class="form-check-label" for="is_public">
+                                <i class="fas fa-globe me-1"></i> Make this analysis public
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{ url_for('main.dashboard') }}" class="btn btn-outline-secondary me-md-2">
+                                <i class="fas fa-times me-1"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-play me-1"></i> Start Analysis
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Analysis Tips -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-lightbulb text-warning me-2"></i>Analysis Tips
+                    </h5>
+                    <ul class="mb-0">
+                        <li>Analyze 5-30 second segments for best results</li>
+                        <li>Use clear audio with minimal background noise</li>
+                        <li>Adjust the base pitch (shruthi) to match the recording's tonic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+Welcome to RagaNoteFinder, {{ user.username }}!
+
+Thank you for joining our community of music enthusiasts. With RagaNoteFinder, you can analyze audio segments to identify Carnatic music notes and enhance your musical journey.
+
+To get started, you can:
+- Upload an audio file or provide a video URL
+- Select the time segment you want to analyze
+- Choose your preferred shruthi (base note)
+- View the detected notes and their timing
+
+If you have any questions or need assistance, feel free to reach out to our support team.
+
+Happy analyzing!
+
+The RagaNoteFinder Team

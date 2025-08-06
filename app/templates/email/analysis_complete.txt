@@ -1,0 +1,15 @@
+Hello {{ user.username }},
+
+Your analysis "{{ analysis.title }}" is now complete!
+
+Analysis Details:
+- Title: {{ analysis.title }}
+- Video URL: {{ analysis.video_url }}
+- Duration: {{ (analysis.end_time - analysis.start_time)|round(2) }} seconds
+- Notes Detected: {{ analysis.notes.count() }}
+
+View your results: {{ url_for('main.analysis', analysis_id=analysis.id, _external=True) }}
+
+Thank you for using RagaNoteFinder!
+
+The RagaNoteFinder Team

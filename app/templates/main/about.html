@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}About - RagaNoteFinder{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="mb-4">About RagaNoteFinder</h1>
+            
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">What is RagaNoteFinder?</h2>
+                    <p>
+                        RagaNoteFinder is a powerful web application designed to help musicians, students, and enthusiasts 
+                        of Indian classical music identify and analyze the notes in Carnatic music performances. 
+                        Our tool allows you to upload audio or provide a YouTube URL to analyze the notes being played 
+                        in a performance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">How It Works</h2>
+                    <ol class="list-group list-group-numbered mb-3">
+                        <li class="list-group-item">Upload an audio file or provide a YouTube URL with timestamps</li>
+                        <li class="list-group-item">Our system processes the audio to extract musical notes</li>
+                        <li class="list-group-item">View detailed analysis including note sequences, pitch, and timing</li>
+                        <li class="list-group-item">Save and share your analyses with others</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Features</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-music me-2 text-primary"></i>Note Detection</h5>
+                                    <p class="card-text">Accurately identifies Carnatic music notes from audio sources.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-youtube me-2 text-danger"></i>YouTube Integration</h5>
+                                    <p class="card-text">Analyze music directly from YouTube videos by URL.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-chart-line me-2 text-success"></i>Visual Analysis</h5>
+                                    <p class="card-text">View pitch and note visualizations for better understanding.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title"><i class="fas fa-save me-2 text-info"></i>Save & Share</h5>
+                                    <p class="card-text">Save your analyses and share them with the community.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="h4 mb-3">Get Started</h2>
+                    <p>
+                        Ready to start analyzing music? 
+                        <a href="{{ url_for('main.analyze') }}" class="btn btn-primary ms-2">
+                            <i class="fas fa-plus me-1"></i> New Analysis
+                        </a>
+                    </p>
+                    <p class="mb-0">
+                        Have questions or feedback? We'd love to hear from you!
+                        <a href="mailto:support@raganotefinder.com" class="btn btn-outline-primary ms-2">
+                            <i class="fas fa-envelope me-1"></i> Contact Us
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
