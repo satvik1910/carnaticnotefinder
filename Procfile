@@ -1,1 +1,1 @@
-web: gunicorn --workers 4 --bind 0.0.0.0:$PORT wsgi_new:application
+web: gunicorn --workers 4 --bind 0.0.0.0:$PORT app_wsgi:application
