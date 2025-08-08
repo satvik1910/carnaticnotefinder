@@ -5,11 +5,7 @@ This module contains the WSGI application used by the application server.
 """
 
 import os
-from app import create_app
-from config import Config
-
-# Create application instance
-application = create_app(Config())
+from app import app as application
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
