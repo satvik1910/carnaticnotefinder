@@ -16,11 +16,15 @@ app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'temp')
 
-# Add a simple context processor to handle current_user
+# Add a context processor to make common variables available in all templates
 @app.context_processor
-def inject_user():
+def inject_common_vars():
     from flask import g
-    return dict(current_user=g.get('current_user', None))
+    from datetime import datetime
+    return {
+        'current_user': g.get('current_user', None),
+        'now': datetime.utcnow()
+    }
 
 # Ensure temp directory exists
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
