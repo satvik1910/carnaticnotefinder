@@ -12,7 +12,7 @@ if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
 from waitress import serve
-from app import app
+from application import app
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
