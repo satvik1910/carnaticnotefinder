@@ -11,7 +11,7 @@ if current_dir not in sys.path:
     sys.path.insert(0, current_dir)
 
 # Import the Flask app
-from app import app as application
+from application import app as application
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
