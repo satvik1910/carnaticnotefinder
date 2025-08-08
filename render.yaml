@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: raganotefinder
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app_runner.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: FLASK_ENV
+        value: production
