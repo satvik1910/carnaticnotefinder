@@ -35,11 +35,11 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    {% if current_user.is_authenticated %}
+                    {% if 'current_user' in g and g.current_user.is_authenticated %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" 
                                data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ current_user.username }}
+                                {{ g.current_user.username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="#">Dashboard</a></li>
